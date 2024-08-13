@@ -1,0 +1,131 @@
+html {
+    height: 100%;
+    width: 100%;
+}
+
+html,
+body {
+    font-size: 18px;
+    font-family: 'Courier New', Courier, monospace;
+    min-height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    line-height: 1.4em;
+}
+
+body {
+    background-size: cover;
+    margin: 0;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+#terminal {
+    display: inline-block;
+    border-radius: 10px;
+    height: 80vh;
+    max-width: 100%;
+    width: 90%;
+    color: white;
+    box-shadow: 0px 0px 5rem rgba(0, 0, 0, 0.4);
+    border-bottom-color: rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+    background-color: black;
+    transform: scale(0);
+    /* Start from a smaller size */
+    animation: zoomIn 0.5s ease-out forwards;
+    /* Zoom-in animation */
+}
+
+@keyframes zoomIn {
+    0% {
+        transform: scale(0);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.terminal-header {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 4rem 0.5rem 0.8rem;
+    background-color: #333333;
+    border-bottom: 1px solid #444444;
+}
+
+/* Color Button */
+.btn {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    margin-right: 8px;
+    padding: 0;
+}
+
+.red {
+    background-color: #ff5f56;
+}
+
+.yellow {
+    background-color: #ffbd2e;
+}
+
+.green {
+    background-color: #27c93f;
+}
+
+
+.terminal-title {
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: bold;
+}
+
+/* Body Styling */
+.terminal-body {
+    padding: 10px 25px;
+    line-height: 1.5;
+}
+
+.terminal-intro {
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+#textField {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 18px;
+    background: none;
+    border: none;
+    outline: none;
+    color: white;
+}
+
+.user {
+    color: #4af626;
+}
+
+.branch {
+    color: gold;
+}
+
+.arrow {
+    color: red;
+}
+
+#animatedText1 {
+    display: inline-block;
+}
+
+/* Pointer styling */
+#cursor {
+    color: white;
+    background-color: white;
+    cursor: none;
+}

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terminal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div id="terminal">
+        <header>
+            <div class="terminal-header">
+                <button class="btn red"></button>
+                <button class="btn yellow"></button>
+                <button class="btn green"></button>
+                <div class="terminal-title">Shrey Singhal@ShreySinghal</div>
+            </div>
+        </header>
+
+        <section class="terminal-body" id="initialSection">
+
+            <p class="terminal-intro" id="fixedText1">
+                <span class="user">Shrey Singhal@ShreySinghal</span>
+                <span class="branch">(main)</span>
+                <span class="arrow"> ~></span>
+                cat ./about.txt(v1.1.18)
+            </p>
+
+            <p class="terminal-intro" id="fixedText2">
+                <span class="user">Shrey Singhal@ShreySinghal</span>
+                <span class="branch">(main)</span>
+                <span class="arrow"> ~></span>
+                You just stepped into Shrey's public terminal. I am currently being built up. Once ready, I will walk
+                you through the life of Shrey. You will be able to ask me about his areas of interests, hobbies,
+                professional experiences and much more. Currently, I am built to support desktop version. I'll be soon
+                available on mobile. Pardon me for any inconvenience and you can always reach out to the developer
+                (shreynbd@gmail.com) for any queries/suggestions. As I continue to develop, you can always checkout my
+                current features. Looking forward to an amazing interaction. <br> <br> Thanks!
+            </p>
+
+            <!-- To get Started -->
+            <p class="terminal-intro" id="animatedText1">
+                <span id="termText1" class="user">Shrey Singhal@ShreySinghal</span>
+                <span id="termText2" class="branch">(main)</span>
+                <span id="termText3" class="arrow"> ~></span>
+            </p>
+
+            <span id="cursor">.</span>
+
+            <!-- Help -->
+            <p class="terminal-intro" id="fixedText3">
+                <span id="text1" class="user"></span>
+                <span id="text2" class="branch"></span>
+                <span id="text3" class="arrow"></span>
+                <input type="text" id="textField">
+            </p>
+
+        </section>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
