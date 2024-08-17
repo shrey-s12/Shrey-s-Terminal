@@ -119,13 +119,12 @@ body {
     color: red;
 }
 
-#animatedText1 {
-    display: inline-block;
+.text-Intro{
+    color: white;
 }
 
 /* Pointer styling */
 #cursor {
     color: white;
     background-color: white;
-    cursor: none;
 }
