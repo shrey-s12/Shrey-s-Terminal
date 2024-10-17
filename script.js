@@ -293,48 +293,6 @@ let checkInputValue = async (input) => {
 };
 
 
-// let checkInputValue = ((input) => {
-//     t2.style.display = "none";
-//     t4.style.visibility = "hidden";
-//     switch (input) {
-//         case "help":
-//             helpFunction(input)
-//             break;
-//         case "resume":
-//             resumeFunction(input)
-//             break;
-//         case "bio":
-//             bioFunction(input)
-//             break;
-//         case "linkedin":
-//             linkedinFunction(input)
-//             break;
-//         case "random":
-//             randomFunction(input)
-//             break;
-//         case "github":
-//             githubFunction(input)
-//             break;
-//         case "contact":
-//             contactFunction(input)
-//             break;
-//         case "date":
-//             dateFunction(input)
-//             break;
-//         case 'projects':
-//         case 'clear':
-//         case 'new':
-//         case 'man':
-//         case 'home':
-//             comingsoonFunction(input);
-//             break;
-//         default:
-//             errorFunction(input);
-//             break;
-//     }
-// });
-
-
 // Functions for performing various input commands
 let inputCommand = ((e) => {
     if (e.key == "Enter") {
