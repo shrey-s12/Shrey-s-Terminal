@@ -63,18 +63,18 @@ let cursorAnimation = (() => {
 
 // Function that print Character By Character
 let str = "To get started; type help and press Enter!!";
-let printCharacterByCharacter = (str1) => {
-    let i = 0;
-    cursor.style.visibility = 'visible';
-    let printText = setInterval(() => {
-        animatedText1.innerHTML += str1.charAt(i);
-        i++;
-        if (i >= str1.length) {
-            clearInterval(printText);
-            cursorAnimation();
-        }
-    }, 40);
-};
+// let printCharacterByCharacter = (str1) => {
+//     let i = 0;
+//     cursor.style.visibility = 'visible';
+//     let printText = setInterval(() => {
+//         animatedText1.innerHTML += str1.charAt(i);
+//         i++;
+//         if (i >= str1.length) {
+//             clearInterval(printText);
+//             cursorAnimation();
+//         }
+//     }, 40);
+// };
 
 // Start Animation
 let startAnimation = () => {
@@ -100,7 +100,7 @@ let helpFunction = (async (text) => {
     let langUsed = await greedFunction();
 
     animatedText1.innerHTML = "";
-    let str = `${langUsed[0]} (${langUsed[1]})! These are the only commands that are currently supported: help, resume, bio, linkedin, random, github, contact, date. But don't try to gain access by running commands like sudo. These commands will come soon: projects, clear, new, man, home.`;
+    let str = `${langUsed[0]} (${langUsed[1]})! These are the only commands that are currently supported: help, resume, bio, linkedin, random, github, contact, date, internship. But don't try to gain access by running commands like sudo. These commands will come soon: projects, clear, new, man, home.`;
     printCharacterByCharacter(str);
 });
 
@@ -109,10 +109,10 @@ let resumeFunction = (async (text) => {
     fixedText1.innerHTML = `Command Execution: ${text}`;
     let langUsed = await greedFunction();
     animatedText1.innerHTML = "";
-    let str = `${langUsed[0]} (${langUsed[1]})! Thanks for the query. Get me resume here: https://drive.google.com/file/d/1H1BRg73islookPvDc9I0PgIrLSXoDTt-/view?usp=sharing. Hold on, opening in a new tab. Please check if the pop-ups are not blocked.`;
+    let str = `${langUsed[0]} (${langUsed[1]})! Thanks for the query. Get me resume here: https://drive.google.com/file/d/18QHfFImnBWLfBIA7VcSdu8b_bZbbvO9e/view?usp=sharing. Hold on, opening in a new tab. Please check if the pop-ups are not blocked.`;
     printCharacterByCharacter(str);
     setTimeout(() => {
-        window.open(`https://drive.google.com/file/d/1H1BRg73islookPvDc9I0PgIrLSXoDTt-/view?usp=sharing`, `_blank`);
+        window.open(`https://drive.google.com/file/d/18QHfFImnBWLfBIA7VcSdu8b_bZbbvO9e/view?usp=sharing`);
     }, 7000);
 });
 
@@ -147,11 +147,11 @@ let randomFunction = (async (text) => {
     let fact = await response.json();
 
     let randomFact = Math.floor(Math.random() * fact.length);
-    
+
     animatedText1.innerHTML = "";
     let str = `${langUsed[0]} (${langUsed[1]})! Here is a random fact about Shrey: ${fact[randomFact].response}`;
     printCharacterByCharacter(str);
-    
+
 });
 
 // 6. Github Function
@@ -204,33 +204,80 @@ let errorFunction = (async (text) => {
     printCharacterByCharacter(str);
 });
 
-let checkInputValue = ((input) => {
+// 9. Internship Function
+let internshipFunction = (async (text) => {
+    fixedText1.innerHTML = `Command Execution: ${text}`;
+    let langUsed = await greedFunction();
+    animatedText1.innerHTML = "";
+    let str = `${langUsed[0]} (${langUsed[1]})! During my summer internship at Exploirin, I gained hands-on experience in software development, working on real-world projects that involved web technologies and cloud-based solutions. 
+    This journey helped me enhance my programming skills, problem-solving abilities, and teamwork. 
+    Here’s my internship certificate: https://drive.google.com/file/d/1oZoRbW1KpS1pm0R-WPuIvDoHKCnxHrbj/view?usp=sharing. Hold on, opening in a new tab. Please check if the pop-ups are not blocked.`;
+    printCharacterByCharacter(str);
+    setTimeout(() => {
+        window.open(`https://drive.google.com/file/d/1oZoRbW1KpS1pm0R-WPuIvDoHKCnxHrbj/view?usp=sharing`);
+    }, 19000);
+});
+
+// Add a loader animation to simulate processing
+let loaderAnimation = () => {
+    return new Promise((resolve) => {
+        animatedText1.innerHTML = "Processing...";
+        setTimeout(() => {
+            animatedText1.innerHTML = ""; // Clear the loading text
+            resolve();
+        }, 1000); // Show the loading for 1 second
+    });
+};
+
+// Smooth character typing with dynamic speed adjustment
+let printCharacterByCharacter = async (str1, speed = 50) => {
+    let i = 0;
+    cursor.style.visibility = 'visible';
+    let printText = setInterval(() => {
+        animatedText1.innerHTML += str1.charAt(i);
+        i++;
+        if (i >= str1.length) {
+            clearInterval(printText);
+            cursorAnimation();
+        }
+    }, speed); // Typing speed is now dynamic
+};
+
+// Improved smooth transitions
+terminal.style.transition = "all 0.3s ease-in-out";
+
+// Updated checkInputValue function to handle 'internship' command
+let checkInputValue = async (input) => {
     t2.style.display = "none";
     t4.style.visibility = "hidden";
+    await loaderAnimation(); // Display the loader before running the command
     switch (input) {
         case "help":
-            helpFunction(input)
+            helpFunction(input);
             break;
         case "resume":
-            resumeFunction(input)
+            resumeFunction(input);
             break;
         case "bio":
-            bioFunction(input)
+            bioFunction(input);
             break;
         case "linkedin":
-            linkedinFunction(input)
+            linkedinFunction(input);
             break;
         case "random":
-            randomFunction(input)
+            randomFunction(input);
             break;
         case "github":
-            githubFunction(input)
+            githubFunction(input);
             break;
         case "contact":
-            contactFunction(input)
+            contactFunction(input);
             break;
         case "date":
-            dateFunction(input)
+            dateFunction(input);
+            break;
+        case 'internship':
+            internshipFunction(input);
             break;
         case 'projects':
         case 'clear':
@@ -243,7 +290,49 @@ let checkInputValue = ((input) => {
             errorFunction(input);
             break;
     }
-});
+};
+
+
+// let checkInputValue = ((input) => {
+//     t2.style.display = "none";
+//     t4.style.visibility = "hidden";
+//     switch (input) {
+//         case "help":
+//             helpFunction(input)
+//             break;
+//         case "resume":
+//             resumeFunction(input)
+//             break;
+//         case "bio":
+//             bioFunction(input)
+//             break;
+//         case "linkedin":
+//             linkedinFunction(input)
+//             break;
+//         case "random":
+//             randomFunction(input)
+//             break;
+//         case "github":
+//             githubFunction(input)
+//             break;
+//         case "contact":
+//             contactFunction(input)
+//             break;
+//         case "date":
+//             dateFunction(input)
+//             break;
+//         case 'projects':
+//         case 'clear':
+//         case 'new':
+//         case 'man':
+//         case 'home':
+//             comingsoonFunction(input);
+//             break;
+//         default:
+//             errorFunction(input);
+//             break;
+//     }
+// });
 
 
 // Functions for performing various input commands

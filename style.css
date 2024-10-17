@@ -1,3 +1,35 @@
+#terminal {
+    font-family: "Courier New", Courier, monospace;
+    background-color: #1a1a1a;
+    color: #00ff00;
+    /* padding: 20px; */
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 255, 0, 0.3);
+    transition: background-color 0.5s ease, box-shadow 0.5s ease;
+}
+
+#terminal:hover {
+    background-color: #0d0d0d;
+    box-shadow: 0px 0px 15px rgba(0, 255, 0, 0.5);
+}
+
+#cursor {
+    animation: blink 1s steps(2) infinite;
+}
+
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+
 html {
     height: 100%;
     width: 100%;
