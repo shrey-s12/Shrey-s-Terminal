@@ -112,7 +112,7 @@ let resumeFunction = (async (text) => {
     let str = `${langUsed[0]} (${langUsed[1]})! Thanks for the query. Get me resume here: https://drive.google.com/file/d/18QHfFImnBWLfBIA7VcSdu8b_bZbbvO9e/view?usp=sharing. Hold on, opening in a new tab. Please check if the pop-ups are not blocked.`;
     printCharacterByCharacter(str);
     setTimeout(() => {
-        window.open(`https://drive.google.com/file/d/18QHfFImnBWLfBIA7VcSdu8b_bZbbvO9e/view?usp=sharing`);
+        window.open(`https://drive.google.com/file/d/15SPitKbVKBev5gqkxA9wkPyovw0-4lAs/view?usp=sharing`);
     }, 7000);
 });
 
